@@ -1,0 +1,117 @@
+/* App.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    /* Optional: If you want to subtly center everything including the body content if the body itself wasn't filling the screen width */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top within the body */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+.app {
+    max-width: 1000px; /* Limits the width of your content */
+    margin: 2rem auto; /* Centers the .app container horizontally and adds top/bottom margin */
+    padding: 2rem;
+    text-align: center; /* Centers all inline-level content (text, inline-block elements) */
+    background-color: #ffffff; /* Add a white background to your content area for professionalism */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* A subtle shadow */
+}
+
+h1 {
+    margin-bottom: 1.5rem; /* More space below the title */
+    color: #2c3e50;
+    font-size: 2.5rem; /* Slightly larger title */
+}
+
+h3 {
+    margin-top: 2.5rem; /* More space above section titles */
+    margin-bottom: 1rem;
+    color: #34495e;
+    font-size: 1.5rem;
+}
+
+/* Form Styling - Moved from inline styles in App.js for cleaner code */
+.app form {
+    display: flex;
+    justify-content: center; /* Centers the input and button horizontally */
+    align-items: center; /* Aligns them vertically if they had different heights */
+    margin-bottom: 2rem; /* Space below the form */
+    gap: 10px; /* Adds space between input and button */
+}
+
+.app form input[type="text"] {
+    padding: 10px 15px; /* More padding for a better look */
+    font-size: 1rem;
+    width: 280px; /* Slightly wider input field */
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.app form input[type="text"]:focus {
+    border-color: #6a9de9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(106, 157, 233, 0.5);
+    outline: none;
+}
+
+.app form button[type="submit"] {
+    padding: 10px 20px; /* More padding for the button */
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #4CAF50; /* A pleasant green */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.app form button[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-1px); /* Slight lift effect */
+}
+
+.app form button[type="submit"]:active {
+    transform: translateY(0); /* Return to original position on click */
+}
+
+/* Recharts container */
+.recharts-responsive-container {
+    margin: 2rem auto; /* Centers the chart and adds vertical margin */
+    /* You already have width="100%" and height={400} in JSX which is good */
+}
+
+
+/* List for Span Values */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+    font-size: 1rem;
+    /* To center the ul block itself, constrain its width and auto-margin */
+    display: inline-block; /* Makes ul shrink-wrap its content */
+    text-align: left; /* Keep the text left-aligned within each li for readability */
+    max-width: 400px; /* Limit the width of the list for better appearance */
+    width: 100%; /* Make it responsive within max-width */
+}
+
+li {
+    background: #fdfdfd; /* Lighter background for list items */
+    padding: 0.75rem 1.25rem; /* More padding */
+    margin: 0.5rem 0; /* More vertical margin */
+    border-radius: 6px; /* Slightly more rounded corners */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04); /* Subtler shadow */
+    border: 1px solid #eee; /* Light border for definition */
+}
+
+/* Optional: If you want a loader or message when data is not available */
+.loading-message, .error-message {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #666;
+}
