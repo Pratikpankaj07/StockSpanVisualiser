@@ -19,8 +19,7 @@ function App() {
   const [companySymbol, setCompanySymbol] = useState("");
   const [inputSymbol, setInputSymbol] = useState("GOOG");
   const k = 5;
-const baseURL = import.meta.env.VITE_BACKEND_URL;
-
+const baseURL = "http://localhost:3002";
 
 const fetchData = async (symbol) => {
   try {
@@ -42,6 +41,7 @@ const fetchData = async (symbol) => {
     alert("Failed to fetch data. Please check the stock symbol or try again later.");
   }
 };
+
 
 
   const handleSubmit = (e) => {
