@@ -23,7 +23,7 @@ function App() {
   const fetchData = async (symbol) => {
     try {
       const res = await axios.get(
-        `http://localhost:3002/api/fetch-prices?symbol=${symbol}`
+        `https://stockspanvisualiser.onrender.com/api/fetch-prices?symbol=${symbol}`
       );
 
       const prices = res.data.data.map((item) => item.price);
