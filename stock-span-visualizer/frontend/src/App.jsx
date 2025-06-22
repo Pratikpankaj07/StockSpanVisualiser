@@ -19,36 +19,29 @@ function App() {
   const [companySymbol, setCompanySymbol] = useState("");
   const [inputSymbol, setInputSymbol] = useState("GOOG");
   const k = 5;
+const baseURL = "https://stockspanvisualiser.onrender.com";
 
-  const fetchData = async (symbol) => {
-    try {
-      const res = await axios.get(
-        `https://stockspanvisualiser.onrender.com/api/fetch-prices?symbol=${symbol}`
-      );
+const fetchData = async (symbol) => {
+  try {
+    const res = await axios.get(`${baseURL}/api/fetch-prices?symbol=${symbol}`);
+    const prices = res.data.data.map((item) => item.price);
+    setStockData(res.data.data);
+    setCompanySymbol(res.data.symbol);
 
-      const prices = res.data.data.map((item) => item.price);
-      setStockData(res.data.data);
-      setCompanySymbol(res.data.symbol);
+    const spanRes = await axios.post(`${baseURL}/api/calculate-span`, { prices });
+    setSpan(spanRes.data.span);
 
-      const spanRes = await axios.post("http://localhost:3002/api/calculate-span", {
-        prices,
-      });
-      setSpan(spanRes.data.span);
+    const smaRes = await axios.post(`${baseURL}/api/sma?k=${k}`, { prices });
+    setSma(smaRes.data.sma);
 
-      const smaRes = await axios.post(`http://localhost:3002/api/sma?k=${k}`, {
-        prices,
-      });
-      setSma(smaRes.data.sma);
+    const maxRes = await axios.post(`${baseURL}/api/max?k=${k}`, { prices });
+    setMax(maxRes.data.maxValues);
+  } catch (err) {
+    console.error("Error fetching or processing data", err);
+    alert("Failed to fetch data. Please check the stock symbol or try again later.");
+  }
+};
 
-      const maxRes = await axios.post(`http://localhost:3002/api/max?k=${k}`, {
-        prices,
-      });
-      setMax(maxRes.data.maxValues);
-    } catch (err) {
-      console.error(" Error fetching or processing data", err);
-      alert("Failed to fetch data. Please check the stock symbol or try again later.");
-    }
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
