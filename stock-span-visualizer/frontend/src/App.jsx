@@ -17,7 +17,7 @@ function App() {
   const [sma, setSma] = useState([]);
   const [max, setMax] = useState([]);
   const [companySymbol, setCompanySymbol] = useState("");
-  const [inputSymbol, setInputSymbol] = useState("");
+  const [inputSymbol, setInputSymbol] = useState("GOOG");
   const k = 5;
 
   const fetchData = async (symbol) => {
