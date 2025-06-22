@@ -19,7 +19,8 @@ function App() {
   const [companySymbol, setCompanySymbol] = useState("");
   const [inputSymbol, setInputSymbol] = useState("GOOG");
   const k = 5;
-const baseURL = "https://stockspanvisualiser.onrender.com";
+const baseURL = import.meta.env.VITE_BACKEND_URL;
+
 
 const fetchData = async (symbol) => {
   try {
